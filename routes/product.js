@@ -6,6 +6,8 @@ var productController = require('../controllers/product-controller');
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 /* GET product page. */
 router.get('/app-product', productController.getProductsPage);
-/* POST product page. */
+/* POST product insert page. */
 router.post('/add-product', urlencodedParser, productController.insertProduct);
+/* POST product edit page. */
+router.post('/edit-product', urlencodedParser, productController.editProduct);
 module.exports = router;

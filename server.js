@@ -22,23 +22,10 @@ var db = mongoose.connection;
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-// index page
-// app.get(['/','page-login.html'], function(req, res) {
-//     res.render('page-login');
-// });
-// app.get('/index.html', function(req, res) {
-//     res.render('index');
-// });
-// app.get('/page-register.html', function(req, res) {
-//     res.render('page-register');
-// });
 //router
 app.use(adminRoutes);
 app.use(productRoutes)
-// app.post('/xuly.html', function(req, res) {
-//     res.render('page-register');
-// });
-
+// listen
 app.listen(8080, function(){
     console.log('listening on *:8080');
 });
