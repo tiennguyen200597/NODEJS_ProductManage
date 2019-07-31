@@ -952,8 +952,9 @@
                                                         data-original-title="Edit"><i class="icon-pencil"
                                                             aria-hidden="true"></i></button>
                                                     <button
-                                                        class="btn btn-sm btn-icon btn-pure btn-default on-default button-remove"
-                                                        data-toggle="tooltip" data-original-title="Remove"><i
+                                                        class="btn btn-sm btn-icon btn-pure btn-default on-default"
+                                                        data-target="#del<%=product._id %>"
+                                                        data-toggle="modal" data-original-title="Remove"><i
                                                             class="icon-trash" aria-hidden="true"></i></button>
                                                 </td>
                                             </tr>
@@ -1040,6 +1041,30 @@
                                                 </div>
                                             </div>
                                             <!-- The Modal Edit end -->
+                                            <!-- The Modal Remove start -->
+                                            <div id="del<%=product._id %>" class="modal modal-dangerdialog" style="display: none;" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Remove Product</h5>
+                                                        </div>
+                                                        <h4 class="modal-title modal-body">You'vd remove product?</h4>                                                        
+                                                        <div class="modal-body">Name: <%= product.name %></div>
+                                                        <div class="modal-body">Prire: <%= product.price %></div>
+                                                        <div class="modal-body">Decription: <%= product.decription %></div>
+                                                        <div class="modal-footer">
+                                                                <form role="form" action="/remove-product" method="POST">
+                                                                    <input class="form-control" hidden="true"
+                                                                        value="<%= product._id %>" name="remproductid"
+                                                                        id="remproductid" type="text">
+                                                            <button type="button" class="btn btn-success" data-dismiss="modal">Cancer</button>
+                                                            <button type="submit" class="btn btn-danger">OK</button>
+                                                                </form>
+                                                        </div>
+                                                    </div> <!-- / .modal-content -->
+                                                </div> <!-- / .modal-dialog -->
+                                            </div>
+                                            <!-- The Modal Remove end -->
                                             <% }); %>
                                         </tbody>
                                         <tfoot>
